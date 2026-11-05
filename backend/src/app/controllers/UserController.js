@@ -1,40 +1,24 @@
-import User from "../models/User";
-import { v4 } from "uuid";
 import * as Yup from "yup";
+import UserService from "../services/UserService";
+
+const schema = Yup.object().shape({
+  name: Yup.string().required(),
+  email: Yup.string().email().required(),
+  password: Yup.string().required().min(6).max(15),
+});
 
 class UserController {
   async store(request, response) {
-    const schema = Yup.object().shape({
-      name: Yup.string().required(),
-      email: Yup.string().email().required(),
-      password: Yup.string().required().min(6).max(15),
-      admin: Yup.boolean(),
-    });
-
     try {
-      schema.validateSync(request.body, { abortEarly: false });
-    } catch (err) {
-      return response.status(400).json({ error: err.errors });
+      const data = await schema.validate(request.body, { abortEarly: false, stripUnknown: true });
+      const user = await UserService.register(data);
+      return response.status(201).json(user);
+    } catch (error) {
+      if (error.name === "ValidationError") return response.status(400).json({ error: error.errors });
+      if (error.status) return response.status(error.status).json({ message: error.message });
+      console.error("Erro ao cadastrar usuário", error);
+      return response.status(500).json({ error: "Erro interno ao cadastrar usuário" });
     }
-
-    const { name, email, password, admin } = request.body;
-
-    const userExists = await User.findOne({
-      where: { email },
-    });
-
-    if (userExists) {
-      return response.status(400).json({ message: "usuário já existe" });
-    }
-
-    const user = await User.create({
-      id: v4(),
-      name,
-      email,
-      password,
-      admin,
-    });
-    return response.status(201).json({ id: user.id, name, email, admin });
   }
 }
 
