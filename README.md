@@ -16,7 +16,7 @@ Frontend React + JavaScript + Vite e backend Node.js + Express + Sequelize.
 2. Configure a variável de ambiente `JWT_SECRET` usando uma chave aleatória forte. O backend não carrega automaticamente arquivos .env; use o ambiente do terminal ou configure o carregamento.
 3. Execute as migrations existentes e `npm run dev` no backend (porta 3001).
 4. `cd frontend && npm install && npm run dev` em outro terminal.
-5. Use /cadastro e /login. O Vite encaminha /api para http://localhost:3001.
+5. Use /register e /login. O Vite encaminha /api para http://localhost:3001.
 
 O armazenamento do JWT em sessionStorage é para a etapa didática; produção requer revisão de XSS, política de sessão e autenticação.
 
