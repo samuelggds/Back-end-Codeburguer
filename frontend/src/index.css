@@ -27,10 +27,22 @@ button, input { font: inherit; }
   overflow: hidden;
   padding: 48px;
   background-color: #111;
+  /* Preserve the supplied concrete texture and restore its fine-grain appearance at desktop scale. */
   background-image: url('./assets/devburger-black-texture.webp');
+  background-blend-mode: normal;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.brand-side::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: url('./assets/devburger-grain-overlay.svg') left top / 768px 768px repeat;
+  mix-blend-mode: overlay;
+  opacity: .43;
 }
 .brand-logo-image {
   position: relative;
