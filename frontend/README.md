@@ -1,50 +1,40 @@
-# DevBurger — frontend (DevClub)
+# Frontend — Projeto Codeburguer (DevClub)
 
-Projeto inicial para acompanhar as videoaulas de **DevBurger — Interface**, utilizando a API já existente neste repositório.
+Frontend desenvolvido para acompanhar as aulas da formação DevBurger/Codeburguer e integrar com a API existente.
 
-## Objetivo
+## Stack provisória
 
-- Reproduzir a stack, o código, as telas e a estrutura ensinados nas videoaulas, para a atividade do certificado.
-- Desenvolver o frontend sem alterar funcionalidades ou regras de negócio da API.
-- Integrar com o backend `Back-end-Codeburguer` à medida que as aulas avançarem.
+- React + JavaScript (JSX)
+- Vite
 
-## Estado atual
+**Importante para o certificado:** o projeto inicial é apenas uma base. Dependências, versões, organização e telas ainda devem ser conferidas com o código usado pelo professor. Não há integração funcional nem reprodução final das videoaulas nesta etapa.
 
-**Bootstrap provisório:** React + JavaScript (JSX) + Vite. O layout do curso **ainda não foi reproduzido** e **nenhuma integração real foi implementada**. Bibliotecas, versões e organização poderão ser ajustadas para corresponder exatamente à aula, após acesso ao código/material de referência. Não confundir este scaffold com a entrega final do certificado.
+## Como executar
 
-## Rodar localmente
-
-Use um terminal aberto na pasta `frontend`:
+A partir da pasta `frontend`:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra a URL impressa pelo Vite (normalmente `http://localhost:5173`).
-
-Para gerar o build:
+Para gerar um build:
 
 ```bash
 npm run build
 ```
 
-## API existente
+## API
 
-A API está na raiz do repositório, escutando na porta `3001`, conforme `src/server.js`.
+O backend está separado em `../backend` e, conforme `backend/src/server.js`, inicia na porta **3001**.
 
-Rotas identificadas em `src/routes.js`:
+Rotas identificadas em `backend/src/routes.js`:
+- `POST /users` — cadastro
+- `POST /login` — login
+- `GET /products` — produtos (autenticado)
+- `GET /categories` — categorias (autenticado)
+- `GET /orders` — pedidos (autenticado)
 
-- `POST /users` — cadastro;
-- `POST /login` — autenticação;
-- `GET /products` — produtos;
-- `GET /categories` — categorias;
-- `GET /orders` — pedidos.
+As rotas de produtos, categorias e pedidos requerem token válido conforme o middleware existente. A integração será implementada nas próximas etapas, seguindo as aulas.
 
-**Atenção:** as rotas de produtos, categorias e pedidos estão após o middleware de autenticação; exigem token válido. O frontend não deve tentar acessar essas rotas anonimamente. As configurações de CORS e a integração serão revistas quando chegarmos a essa etapa do curso.
-
-Para configurar uma URL local, copie `.env.example` para `.env`. Nunca faça commit de segredos. Variáveis `VITE_*` são públicas no navegador.
-
-## Próxima etapa
-
-Conferir a aula **Iniciando Projeto** e reproduzir as dependências, comandos e arquivos mostrados pelo professor antes de começar a tela de cadastro/login.
+Se precisar configurar a URL da API, copie `.env.example` para `.env`. Variáveis `VITE_*` são expostas ao navegador; nunca coloque segredos nelas.
