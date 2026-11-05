@@ -4,8 +4,12 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
+    "setup:env": "node scripts/setup-env.cjs",
+    "predev": "npm run setup:env",
     "dev": "nodemon",
-    "debug": "nodemon --inspect"
+    "predebug": "npm run setup:env",
+    "debug": "nodemon --inspect",
+    "test:env": "node --test scripts/setup-env.test.cjs"
   },
   "author": "",
   "license": "ISC",

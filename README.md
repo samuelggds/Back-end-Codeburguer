@@ -12,8 +12,8 @@ Frontend React + JavaScript + Vite e backend Node.js + Express + Sequelize.
 
 ## Execução local
 
-1. `cd backend && npm install`; configure PostgreSQL e MongoDB conforme a configuração existente.
-2. Configure a variável de ambiente `JWT_SECRET` usando uma chave aleatória forte. O backend não carrega automaticamente arquivos .env; use o ambiente do terminal ou configure o carregamento.
+1. Use Node.js 20.6+; execute `cd backend && npm install`; configure PostgreSQL e MongoDB conforme a configuração existente.
+2. `npm run dev` cria automaticamente `backend/.env` com uma chave `JWT_SECRET` aleatória forte (se necessário) e carrega o arquivo com a opção nativa `--env-file` do Node.js. O `.env` fica fora do Git.
 3. Execute as migrations existentes e `npm run dev` no backend (porta 3001).
 4. `cd frontend && npm install && npm run dev` em outro terminal.
 5. Use /register e /login. O Vite encaminha /api para http://localhost:3001.

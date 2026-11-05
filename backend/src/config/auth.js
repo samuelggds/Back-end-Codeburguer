@@ -1,9 +1,10 @@
-// Defina JWT_SECRET no ambiente. Nunca versionar uma chave de assinatura real.
-if (!process.env.JWT_SECRET) {
-  throw new Error("JWT_SECRET não configurado. Configure a variável antes de iniciar a API.");
+// Carregada a partir de backend/.env pelo comando de desenvolvimento ou pelo ambiente da hospedagem.
+const secret = process.env.JWT_SECRET?.trim();
+if (!secret || secret === 'SUBSTITUA_POR_UMA_CHAVE_ALEATORIA_FORTE') {
+  throw new Error('JWT_SECRET nao configurado. Na pasta backend, execute npm run setup:env e inicie com npm run dev.');
 }
 
 export default {
-  secret: process.env.JWT_SECRET,
-  expiresIn: "1d",
+  secret,
+  expiresIn: '1d',
 };
