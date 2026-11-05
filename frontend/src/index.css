@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@600;700;800&family=Rubik+Dirt&display=swap');
 
 :root {
   font-family: 'Roboto', Arial, sans-serif;
@@ -28,8 +28,8 @@ button, input { font: inherit; }
   overflow: hidden;
   padding: 48px;
   background:
-    radial-gradient(ellipse at 37% 31%, rgba(99,99,99,.21), transparent 55%),
-    linear-gradient(145deg, #252525, #0e0e0e 85%);
+    radial-gradient(ellipse at 46% 42%, rgba(112,112,112,.36), transparent 54%),
+    linear-gradient(160deg, #303030 0%, #1d1d1d 45%, #090909 100%);
 }
 .brand-side::before {
   content: '';
@@ -37,10 +37,10 @@ button, input { font: inherit; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: .27;
+  opacity: .68;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
   background-size: 220px 220px;
-  mix-blend-mode: soft-light;
+  mix-blend-mode: overlay;
 }
 .brand-side::after {
   content: '';
@@ -49,8 +49,7 @@ button, input { font: inherit; }
   z-index: -1;
   pointer-events: none;
   background:
-    repeating-linear-gradient(124deg, transparent 0 36px, rgba(255,255,255,.025) 37px, transparent 38px 75px),
-    radial-gradient(ellipse at center, transparent 32%, rgba(0,0,0,.55) 100%);
+    radial-gradient(ellipse at 48% 43%, transparent 10%, rgba(0,0,0,.16) 52%, rgba(0,0,0,.67) 100%);
 }
 .brand-logo-image {
   position: relative;
@@ -72,15 +71,16 @@ button, input { font: inherit; }
 .auth-container { width: min(100%, 355px); }
 .login-heading, .login-subheading {
   text-align: center;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-  font-size: 20px;
-  line-height: 1.2;
+  font-family: 'Rubik Dirt', 'Roboto Condensed', sans-serif;
+  font-size: clamp(18px, 1.65vw, 25px);
+  line-height: 1.22;
   margin: 0;
   font-weight: 700;
 }
-.login-heading strong, .login-subheading strong, .register-heading { color: #98519e; }
+.login-heading strong, .login-subheading strong, .register-heading { color: #98519e; font-weight: inherit; }
 .login-subheading { margin-bottom: 54px; }
-.register-heading { text-align: center; font-family: 'Roboto Condensed', 'Roboto', sans-serif; font-size: 24px; margin: 0 0 28px; }
+/* A textura da tipografia e aplicada somente ao titulo e ao CTA; os campos continuam legiveis. */
+.register-heading { text-align: center; font-family: 'Rubik Dirt', 'Roboto Condensed', sans-serif; font-size: 26px; margin: 0 0 28px; }
 .auth-form { display: flex; flex-direction: column; gap: 9px; }
 .auth-form label { font-size: 14px; font-weight: 700; margin-top: 3px; }
 .auth-form input {
@@ -111,9 +111,9 @@ button, input { font: inherit; }
   padding: 11px 18px;
   margin-top: 28px;
   cursor: pointer;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-  font-weight: 800;
-  font-size: 17px;
+  font-family: 'Rubik Dirt', 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
 }
 .auth-form button:disabled { opacity: .65; cursor: wait; }
 .auth-form button:hover:not(:disabled) { background: #ad61b8; }
