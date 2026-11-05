@@ -6,5 +6,5 @@ export default function AuthLayout({ children }) {
   </main>
 }
 export function AuthFooter({ register }) {
-  return <p className="auth-footer">{register ? 'Já possui conta?' : 'Não possui conta?'}{' '}<Link to={register ? '/login' : '/cadastro'}>Clique aqui.</Link></p>
+  return <p className="auth-footer">{register ? 'Já possui conta?' : 'Não possui conta?'}{' '}<Link to={register ? '/login' : '/register'}>Clique aqui.</Link></p>
 }
