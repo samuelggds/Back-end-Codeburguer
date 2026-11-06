@@ -1,15 +1,17 @@
 /* Product styles are isolated under .dev-burguer-app. Standalone body reset belongs to main.css. */
 .dev-burguer-app { color-scheme: light; --purple:#9758a6; --green:#61a120; --orange:#ff8c05; }
 .dev-burguer-app, .dev-burguer-app * { box-sizing:border-box; }
-.dev-burguer-app { margin:0; background:#1e1e1e; color:#333; font-family:Poppins,Arial,sans-serif; }
+.dev-burguer-app { width:100%; min-height:100vh; min-height:100dvh; margin:0; background:#1e1e1e; color:#333; font-family:Poppins,Arial,sans-serif; }
 .dev-burguer-app button, .dev-burguer-app input { font:inherit; }
 .dev-burguer-app button { cursor:pointer; }
 .dev-burguer-app button:disabled { cursor:default; }
 .dev-burguer-app button:focus-visible, .dev-burguer-app a:focus-visible { outline:3px solid #ffb237; outline-offset:4px; }
 .dev-burguer-app [hidden] { display:none !important; }
 .dev-burguer-app .sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-.dev-burguer-app .desktop { width:calc(100% - 3px); max-width:1440px; margin:0 auto; container-type:inline-size; }
-.dev-burguer-app .home { --u:calc(100cqw / 768); }
+.dev-burguer-app .desktop { width:100%; margin:0; container-type:inline-size; }
+/* Fill the viewport while capping the scale of text, controls and category photos. */
+.dev-burguer-app .home { --u:min(calc(100cqw / 768),1.875px); min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; }
+.dev-burguer-app .home > main { flex:1; min-width:0; display:flex; flex-direction:column; }
 .dev-burguer-app .topbar { height:calc(39 * var(--u)); background:#1f1f1f; position:relative; color:#fff; }
 .dev-burguer-app .brand { position:absolute; left:calc(27 * var(--u)); top:0; height:100%; display:flex; align-items:center; border:0; padding:0; background:none; }
 /* Todas as imagens ficam abaixo ou no limite de sua resolução nativa. */
@@ -28,18 +30,18 @@
 .dev-burguer-app .orders .icon { width:calc(13 * var(--u)); height:calc(17 * var(--u)); }
 .dev-burguer-app .order-dot { position:absolute; right:0; top:0; width:calc(4 * var(--u)); height:calc(4 * var(--u)); border-radius:50%; background:var(--orange); }
 .dev-burguer-app .cart-count { position:absolute; top:calc(-6 * var(--u)); left:calc(7 * var(--u)); min-width:calc(12 * var(--u)); padding:0 calc(3 * var(--u)); background:var(--orange); border-radius:20px; color:#fff; text-align:center; font-size:calc(7 * var(--u)); }
-.dev-burguer-app .hero { width:100%; aspect-ratio:2880/914; position:relative; overflow:hidden; }
-.dev-burguer-app .hero-photo { width:100%; height:100%; display:block; object-fit:contain; }
+.dev-burguer-app .hero { width:100%; max-height:914px; aspect-ratio:2880/914; position:relative; overflow:hidden; flex-shrink:0; }
+.dev-burguer-app .hero-photo { width:100%; max-width:2880px; height:100%; margin-inline:auto; display:block; object-fit:contain; }
 .dev-burguer-app .hero h1 { position:absolute; left:70.1%; top:14.8%; margin:0; color:#fff; font-family:Rye,Georgia,serif; font-size:calc(34 * var(--u)); line-height:1.2; font-weight:400; white-space:nowrap; transform:scaleX(.60); transform-origin:left center; }
-.dev-burguer-app .catalog { min-height:calc(503 * var(--u)); background:#f4f4f4; position:relative; isolation:isolate; overflow:hidden; }
+.dev-burguer-app .catalog { flex:1; min-height:calc(503 * var(--u)); background:#f4f4f4; position:relative; isolation:isolate; overflow:hidden; }
 /* SVG original fornecido: mantém as imagens internas e a opacidade de 15%. */
-.dev-burguer-app .catalog::before { content:""; position:absolute; inset:0; z-index:-1; background:url("../../../assets/home/catalog-transparent-pattern.svg") left top / 100% auto repeat-y; pointer-events:none; }
+.dev-burguer-app .catalog::before { content:""; position:absolute; inset:0; z-index:-1; background:url("../../../assets/home/catalog-transparent-pattern.svg") left top / min(100%,1440px) auto repeat; pointer-events:none; }
 .dev-burguer-app .categories { padding-top:calc(13 * var(--u)); }
 .dev-burguer-app .section-heading { margin:0; text-align:center; color:var(--purple); font-size:calc(17 * var(--u)); line-height:calc(25 * var(--u)); font-weight:800; }
 .dev-burguer-app .section-heading::after { content:""; display:block; width:calc(31 * var(--u)); height:calc(2 * var(--u)); margin:calc(4 * var(--u)) auto 0; background:currentColor; }
 .dev-burguer-app .category-carousel { position:relative; margin-top:calc(20 * var(--u)); }
 .dev-burguer-app .category-window { margin-left:9.6354%; width:81.3802%; overflow:hidden; border-radius:calc(4 * var(--u)); }
-.dev-burguer-app .category-track { display:flex; align-items:stretch; gap:calc(10 * var(--u)); transform:translateX(calc(-55 * var(--u))); transition:transform 350ms ease; }
+.dev-burguer-app .category-track { display:flex; align-items:stretch; justify-content:space-between; gap:calc(10 * var(--u)); transform:translateX(calc(-55 * var(--u))); transition:transform 350ms ease; }
 .dev-burguer-app .category-card { position:relative; flex:0 0 calc(170 * var(--u)); width:calc(170 * var(--u)); height:min(calc(124 * var(--u)),232px); padding:0; border:0; border-radius:calc(5 * var(--u)); overflow:hidden; background:#242021; text-align:left; color:#fff; }
 .dev-burguer-app .category-card.starters { flex-basis:calc(141.24 * var(--u)); width:calc(141.24 * var(--u)); }
 .dev-burguer-app .category-photo { width:100%; height:100%; object-fit:contain; display:block; }
