@@ -2,6 +2,8 @@
 
 :root {
   font-family: 'Roboto', Arial, sans-serif;
+  /* Keep native form controls consistent regardless of OS/browser dark mode. */
+  color-scheme: light;
   color: #fff;
   background: #252525;
   font-synthesis: none;
