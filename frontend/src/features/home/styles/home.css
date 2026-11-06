@@ -1,0 +1,126 @@
+/* Product styles are isolated under .dev-burguer-app. Standalone body reset belongs to main.css. */
+.dev-burguer-app { color-scheme: light; --purple:#9758a6; --green:#61a120; --orange:#ff8c05; }
+.dev-burguer-app, .dev-burguer-app * { box-sizing:border-box; }
+.dev-burguer-app { margin:0; background:#1e1e1e; color:#333; font-family:Poppins,Arial,sans-serif; }
+.dev-burguer-app button, .dev-burguer-app input { font:inherit; }
+.dev-burguer-app button { cursor:pointer; }
+.dev-burguer-app button:disabled { cursor:default; }
+.dev-burguer-app button:focus-visible, .dev-burguer-app a:focus-visible { outline:3px solid #ffb237; outline-offset:4px; }
+.dev-burguer-app [hidden] { display:none !important; }
+.dev-burguer-app .sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.dev-burguer-app .desktop { width:calc(100% - 3px); max-width:1440px; margin:0 auto; container-type:inline-size; }
+.dev-burguer-app .home { --u:calc(100cqw / 768); }
+.dev-burguer-app .topbar { height:calc(39 * var(--u)); background:#1f1f1f; position:relative; color:#fff; }
+.dev-burguer-app .brand { position:absolute; left:calc(27 * var(--u)); top:0; height:100%; display:flex; align-items:center; border:0; padding:0; background:none; }
+/* Todas as imagens ficam abaixo ou no limite de sua resolução nativa. */
+.dev-burguer-app .brand img { width:min(calc(40 * var(--u)),2977px); height:auto; max-height:100%; display:block; }
+.dev-burguer-app .navigation { position:absolute; left:calc(123 * var(--u)); top:0; height:100%; display:flex; align-items:center; }
+.dev-burguer-app .navigation button { color:#fff; background:transparent; border:0; padding:0 calc(14 * var(--u)); font-size:calc(7 * var(--u)); font-weight:400; line-height:calc(12 * var(--u)); }
+.dev-burguer-app .navigation button + button { border-left:1px solid #454545; }
+.dev-burguer-app .account { position:absolute; right:calc(143 * var(--u)); top:calc(11 * var(--u)); display:flex; align-items:flex-start; gap:calc(4 * var(--u)); }
+.dev-burguer-app .icon { width:1em; height:1em; display:block; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+.dev-burguer-app .account > .icon { width:calc(12 * var(--u)); height:calc(14 * var(--u)); }
+.dev-burguer-app .account-copy { font-size:calc(6 * var(--u)); line-height:1.25; }
+.dev-burguer-app .account-copy strong { font-weight:700; color:var(--purple); }
+.dev-burguer-app .account-copy button { display:block; padding:0; border:0; background:none; color:#ff5b11; font-size:inherit; line-height:1.2; }
+.dev-burguer-app .orders { position:absolute; right:calc(75 * var(--u)); top:calc(10 * var(--u)); display:flex; align-items:center; gap:calc(5 * var(--u)); border:0; color:#fff; background:transparent; padding:0; font-size:calc(6 * var(--u)); }
+.dev-burguer-app .orders-icon { position:relative; }
+.dev-burguer-app .orders .icon { width:calc(13 * var(--u)); height:calc(17 * var(--u)); }
+.dev-burguer-app .order-dot { position:absolute; right:0; top:0; width:calc(4 * var(--u)); height:calc(4 * var(--u)); border-radius:50%; background:var(--orange); }
+.dev-burguer-app .cart-count { position:absolute; top:calc(-6 * var(--u)); left:calc(7 * var(--u)); min-width:calc(12 * var(--u)); padding:0 calc(3 * var(--u)); background:var(--orange); border-radius:20px; color:#fff; text-align:center; font-size:calc(7 * var(--u)); }
+.dev-burguer-app .hero { width:100%; aspect-ratio:2880/914; position:relative; overflow:hidden; }
+.dev-burguer-app .hero-photo { width:100%; height:100%; display:block; object-fit:contain; }
+.dev-burguer-app .hero h1 { position:absolute; left:70.1%; top:14.8%; margin:0; color:#fff; font-family:Rye,Georgia,serif; font-size:calc(34 * var(--u)); line-height:1.2; font-weight:400; white-space:nowrap; transform:scaleX(.60); transform-origin:left center; }
+.dev-burguer-app .catalog { min-height:calc(503 * var(--u)); background:#f4f4f4; position:relative; isolation:isolate; overflow:hidden; }
+/* SVG original fornecido: mantém as imagens internas e a opacidade de 15%. */
+.dev-burguer-app .catalog::before { content:""; position:absolute; inset:0; z-index:-1; background:url("../../../assets/home/catalog-transparent-pattern.svg") left top / 100% auto repeat-y; pointer-events:none; }
+.dev-burguer-app .categories { padding-top:calc(13 * var(--u)); }
+.dev-burguer-app .section-heading { margin:0; text-align:center; color:var(--purple); font-size:calc(17 * var(--u)); line-height:calc(25 * var(--u)); font-weight:800; }
+.dev-burguer-app .section-heading::after { content:""; display:block; width:calc(31 * var(--u)); height:calc(2 * var(--u)); margin:calc(4 * var(--u)) auto 0; background:currentColor; }
+.dev-burguer-app .category-carousel { position:relative; margin-top:calc(20 * var(--u)); }
+.dev-burguer-app .category-window { margin-left:9.6354%; width:81.3802%; overflow:hidden; border-radius:calc(4 * var(--u)); }
+.dev-burguer-app .category-track { display:flex; align-items:stretch; gap:calc(10 * var(--u)); transform:translateX(calc(-55 * var(--u))); transition:transform 350ms ease; }
+.dev-burguer-app .category-card { position:relative; flex:0 0 calc(170 * var(--u)); width:calc(170 * var(--u)); height:min(calc(124 * var(--u)),232px); padding:0; border:0; border-radius:calc(5 * var(--u)); overflow:hidden; background:#242021; text-align:left; color:#fff; }
+.dev-burguer-app .category-card.starters { flex-basis:calc(141.24 * var(--u)); width:calc(141.24 * var(--u)); }
+.dev-burguer-app .category-photo { width:100%; height:100%; object-fit:contain; display:block; }
+.dev-burguer-app .category-copy { position:absolute; left:calc(9 * var(--u)); right:calc(4 * var(--u)); bottom:calc(16 * var(--u)); }
+.dev-burguer-app .category-title { width:max-content; max-width:100%; display:block; background:rgba(0,0,0,.58); border-radius:calc(12 * var(--u)); padding:calc(1 * var(--u)) calc(10 * var(--u)); margin-left:calc(-1 * var(--u)); font-size:calc(12 * var(--u)); font-weight:700; line-height:calc(18 * var(--u)); }
+.dev-burguer-app .category-description { display:block; margin-left:calc(9 * var(--u)); margin-top:calc(-1 * var(--u)); font-size:calc(7 * var(--u)); font-weight:400; line-height:calc(10 * var(--u)); text-shadow:0 1px 3px #222; white-space:nowrap; }
+.dev-burguer-app .category-card:first-child .category-copy { bottom:calc(6 * var(--u)); }
+.dev-burguer-app .category-card:first-child .category-description { white-space:normal; }
+.dev-burguer-app .arrow { position:absolute; z-index:2; top:50%; transform:translateY(-50%); width:calc(28 * var(--u)); height:calc(38 * var(--u)); display:grid; place-items:center; color:var(--purple); border:0; background:transparent; padding:0; }
+.dev-burguer-app .arrow .icon { width:calc(23 * var(--u)); height:calc(29 * var(--u)); stroke-width:4; }
+.dev-burguer-app .arrow.previous { left:calc(35 * var(--u)); }
+.dev-burguer-app .arrow.next { right:calc(35 * var(--u)); }
+.dev-burguer-app .arrow:disabled { color:#c9c9c9; }
+.dev-burguer-app .offers { margin-top:calc(30 * var(--u)); }
+.dev-burguer-app .offers .section-heading { color:var(--green); }
+.dev-burguer-app .offer-carousel { position:relative; padding-top:calc(41 * var(--u)); }
+.dev-burguer-app .product-window { margin:0 calc(69 * var(--u)); overflow:visible; }
+.dev-burguer-app .product-track { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:calc(17 * var(--u)); }
+.dev-burguer-app .product { position:relative; min-width:0; height:calc(117 * var(--u)); background:#fff; border-radius:calc(17 * var(--u)); box-shadow:0 calc(6 * var(--u)) calc(12 * var(--u)) #00000018; }
+.dev-burguer-app .product-image-box { position:absolute; inset:calc(-22 * var(--u)) 0 auto; height:calc(61 * var(--u)); display:flex; align-items:center; justify-content:center; }
+.dev-burguer-app .product-image { display:block; width:calc(86 * var(--u)); height:auto; max-height:100%; object-fit:contain; }
+.dev-burguer-app .product[data-id="burger"] .product-image { max-width:314px; }
+.dev-burguer-app .product[data-id="waffles"] .product-image { max-width:164px; }
+.dev-burguer-app .product[data-id="pancakes"] .product-image { max-width:166px; }
+.dev-burguer-app .product[data-id="toast"] .product-image { width:calc(94 * var(--u)); max-width:188px; }
+.dev-burguer-app .product-details { position:absolute; top:calc(44 * var(--u)); left:calc(11 * var(--u)); right:calc(7 * var(--u)); }
+.dev-burguer-app .product h3 { margin:0; font-size:calc(9.5 * var(--u)); line-height:calc(13 * var(--u)); font-weight:700; color:var(--orange); white-space:nowrap; }
+.dev-burguer-app .product-price { display:block; font-size:calc(9.5 * var(--u)); font-weight:700; line-height:calc(14 * var(--u)); }
+.dev-burguer-app .add-button { position:absolute; bottom:calc(12 * var(--u)); left:calc(11 * var(--u)); right:calc(11 * var(--u)); height:calc(21 * var(--u)); border:0; border-radius:calc(4 * var(--u)); color:#fff; background:var(--purple); display:grid; place-items:center; padding:0; }
+.dev-burguer-app .add-button .icon { width:calc(12 * var(--u)); height:calc(12 * var(--u)); stroke-width:1.6; }
+.dev-burguer-app .add-button:hover { background:#844795; }
+.dev-burguer-app .offer-carousel > .arrow { top:calc(111 * var(--u)); }
+.dev-burguer-app .toast-message { position:fixed; z-index:20; left:50%; bottom:24px; transform:translateX(-50%); padding:12px 20px; max-width:calc(100vw - 32px); border-radius:8px; background:#262126; color:#fff; box-shadow:0 4px 20px #0003; font-size:14px; }
+.dev-burguer-app dialog { width:min(480px,calc(100vw - 32px)); padding:24px; background:#fff; color:#333; border:0; border-radius:16px; box-shadow:0 12px 64px #0004; font-size:14px; }
+.dev-burguer-app dialog::backdrop { background:#0008; }
+.dev-burguer-app .dialog-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:20px; }
+.dev-burguer-app .dialog-heading h2 { margin:0; color:var(--purple); font-size:22px; }
+.dev-burguer-app .close-dialog { display:grid; place-items:center; width:32px; height:32px; border:0; border-radius:50%; color:#666; background:#f4f4f4; }
+.dev-burguer-app .close-dialog .icon { width:18px; height:18px; }
+.dev-burguer-app .cart-item { display:grid; grid-template-columns:1fr auto; gap:10px; border-bottom:1px solid #eee; padding:12px 0; }
+.dev-burguer-app .cart-item h3 { margin:0 0 3px; font-size:14px; }
+.dev-burguer-app .quantity { display:flex; align-items:center; gap:8px; }
+.dev-burguer-app .quantity button { width:28px; height:28px; background:#f1e9f4; color:#79418a; border:0; border-radius:5px; }
+.dev-burguer-app .cart-total { display:flex; justify-content:space-between; margin-top:20px; font-weight:700; font-size:18px; }
+.dev-burguer-app .dialog-note { margin:16px 0 0; color:#666; font-size:12px; }
+.dev-burguer-app .category-detail-photo { width:auto; height:auto; max-width:100%; display:block; margin:0 auto 16px; border-radius:8px; }
+.dev-burguer-app .details-products { margin:12px 0 0; padding:0; list-style:none; }
+.dev-burguer-app .details-products li { display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-top:1px solid #eee; }
+@media (prefers-reduced-motion:reduce) { .dev-burguer-app .category-track { transition:none; } }
+@media (max-width:600px) {
+  .dev-burguer-app .home { --u:0.78125px; }
+  .dev-burguer-app .topbar { height:66px; }
+  .dev-burguer-app .brand { left:16px; height:40px; }
+  .dev-burguer-app .brand img { width:43px; }
+  .dev-burguer-app .navigation { top:40px; left:8px; height:24px; }
+  .dev-burguer-app .navigation button { font-size:10px; padding:0 12px; }
+  .dev-burguer-app .account { top:10px; right:95px; }
+  .dev-burguer-app .account-copy, .dev-burguer-app .orders { font-size:9px; }
+  .dev-burguer-app .account > .icon { width:17px; height:18px; }
+  .dev-burguer-app .orders { right:18px; top:13px; }
+  .dev-burguer-app .orders .icon { width:18px; height:20px; }
+  .dev-burguer-app .hero h1 { font-size:25px; left:auto; right:10%; top:12%; }
+  .dev-burguer-app .catalog { min-height:650px; }
+  .dev-burguer-app .catalog::before { background-size:768px auto; }
+  .dev-burguer-app .category-window { width:calc(100% - 66px); margin-left:33px; }
+  .dev-burguer-app .category-card { flex-basis:170px; width:170px; height:124px; }
+  .dev-burguer-app .category-card.starters { flex-basis:141px; width:141px; }
+  .dev-burguer-app .category-title { font-size:12px; line-height:18px; }
+  .dev-burguer-app .category-description { font-size:8px; line-height:11px; }
+  .dev-burguer-app .arrow.previous { left:2px; }
+  .dev-burguer-app .arrow.next { right:2px; }
+  .dev-burguer-app .product-window { margin:0 30px; }
+  .dev-burguer-app .product-track { grid-template-columns:repeat(2,minmax(0,1fr)); gap:44px 16px; }
+  .dev-burguer-app .product { height:135px; border-radius:16px; }
+  .dev-burguer-app .product-details { top:53px; left:10px; }
+  .dev-burguer-app .product h3, .dev-burguer-app .product-price { font-size:10px; line-height:15px; }
+  .dev-burguer-app .product h3 { white-space:normal; }
+  .dev-burguer-app .product-image-box { top:-24px; height:68px; }
+  .dev-burguer-app .product-image { width:92px; }
+  .dev-burguer-app .product[data-id="toast"] .product-image { width:100px; }
+  .dev-burguer-app .add-button { height:27px; bottom:10px; left:10px; right:10px; }
+  .dev-burguer-app .add-button .icon { width:14px; height:14px; }
+  .dev-burguer-app .offer-carousel > .arrow { top:92px; }
+}
