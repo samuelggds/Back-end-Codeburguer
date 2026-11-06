@@ -23,9 +23,9 @@
 .store-hero-content{position:relative;max-width:1180px;height:100%;margin:auto;padding:45px 66px;display:flex;justify-content:flex-end;align-items:flex-start}
 .store-hero h1{margin:0;font-family:'Roboto Condensed',Impact,sans-serif;font-weight:900;font-stretch:condensed;font-size:clamp(30px,3vw,46px);color:#fff;text-shadow:2px 3px 3px rgba(0,0,0,.5)}
 .storefront main{flex:1}
-.store-content{position:relative;isolation:isolate;background:#f9f9f9;min-height:800px;padding:22px 0 125px}
-/* Keep the supplied transparent pattern subtle and at Figma-like scale. */
-.store-content::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('../assets/devburger-pattern.png') center top / 1024px auto repeat;opacity:1}
+.store-content{position:relative;isolation:isolate;background:#fff;min-height:800px;padding:22px 0 125px}
+/* Original 1440x1001 SVG is transparent and sits over the white catalog surface. */
+.store-content::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('../assets/home/catalog-pattern.svg');background-position:center top;background-size:1440px 1001px;background-repeat:repeat;opacity:1}
 .store-section{max-width:1200px;margin:0 auto;padding:0 50px}
 .store-title{text-align:center;text-transform:uppercase;font-family:Poppins,Arial,sans-serif;font-size:32px;line-height:1;font-weight:800;margin:4px 0 38px;position:relative}
 .store-title::after{content:'';display:block;width:57px;height:4px;background:currentColor;margin:13px auto 0}
