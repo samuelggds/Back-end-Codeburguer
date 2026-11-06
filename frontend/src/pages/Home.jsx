@@ -8,10 +8,10 @@ import toastImg from '../assets/home/misto-quente.svg'
 import './Home.css'
 
 const categories = [
-  { id: 'hamburgueres', title: 'Hambúrgueres', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=90' },
-  { id: 'bebidas', title: 'Bebidas', image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=90' },
-  { id: 'sobremesas', title: 'Sobremesas', image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=90' },
-  { id: 'entradas', title: 'Entradas', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=90' },
+  { id: 'hamburgueres', title: 'Hamburgueres', description: 'Hamburgueres, x-saladas, cachorros-quentes', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=90' },
+  { id: 'bebidas', title: 'Bebidas', description: 'Refrigerantes, Sucos, Vitaminas', image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=90' },
+  { id: 'sobremesas', title: 'Sobremesas', description: 'Panquecas e Waffles', image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=90' },
+  { id: 'entradas', title: 'Entradas', description: 'Batata-Frita e Petisco', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=90' },
 ]
 
 const initialOffers = [
@@ -92,7 +92,7 @@ export default function Home() {
               <div className="store-category-rail" ref={categoryRef}>
                 {categories.map((item) => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => { setCategory((value) => value === item.id ? 'all' : item.id); document.getElementById('ofertas')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className={'store-category' + (category === item.id ? ' selected' : '')}>
                   <img src={item.image} alt="" loading="lazy" />
-                  <span>{item.title}</span>
+                  <span className="store-category-label"><strong>{item.title}</strong><small>{item.description}</small></span>
                 </button>)}
               </div>
               <button type="button" className="store-arrow store-arrow-right" onClick={() => slide(categoryRef, 1)} aria-label="Próximas categorias">›</button>
