@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import LoginService from "../services/LoginService";
 
 const schema = Yup.object().shape({
-  email: Yup.string().email().required(),
+  email: Yup.string().trim().lowercase().email().required(),
   password: Yup.string().required(),
 });
 
