@@ -75,3 +75,82 @@
 @media(max-width:900px){.store-header-inner{padding:0 22px;gap:16px}.store-category{flex-basis:40%;min-width:195px;height:200px}.store-product{flex-basis:calc((100% - 22px)/2)}.store-hero{height:285px}.store-section{padding:0 20px}}
 @media(max-width:600px){.store-header{height:auto;min-height:70px}.store-header-inner{padding:8px 12px;gap:10px;flex-wrap:wrap}.store-logo{height:50px;width:55px}.store-logo img{max-width:54px;max-height:49px}.store-nav{order:3;flex-basis:100%;justify-content:center;padding:5px 0 7px}.store-account{margin-left:auto;gap:11px}.store-user svg,.store-orders svg{width:19px;height:19px}.store-orders{font-size:11px!important}.store-hero{height:205px}.store-hero-content{padding:25px 22px}.store-hero h1{font-size:32px}.store-section{padding:0 8px}.store-title{font-size:clamp(22px,5vw,28px);margin-bottom:24px}.store-content{padding-top:24px;min-height:660px}.store-carousel-wrap{padding:0 22px}.store-category{min-width:190px;flex-basis:74%;height:175px}.store-category span{font-size:15px;bottom:16px;left:12px}.store-arrow{font-size:38px!important}.store-categories{margin-bottom:55px}.store-offers .store-title{margin-bottom:51px}.store-product{flex-basis:calc(80% - 16px);min-height:205px}.store-product-photo{height:115px;top:-39px}.store-product-info h3,.store-product-info p{font-size:13px}.store-footer{font-size:10px;padding:12px}}
 @media(prefers-reduced-motion:reduce){.store-category img,.store-category-rail,.store-offer-rail{scroll-behavior:auto;transition:none}}
+
+
+/* Home 2026-11-06: proportions transcribed from home-completa.zip.
+   Assets in the ZIP must be added in a follow-up commit for pixel parity.
+   Scoped overrides intentionally preserve the React cart and authentication. */
+.storefront{font-family:Poppins,Arial,sans-serif;background:#f4f4f4}
+.store-header{height:73px}
+.store-header-inner{max-width:1440px;padding:0 5%;gap:8%;justify-content:space-between}
+.store-logo{width:80px;height:100%}
+.store-logo img{width:80px;max-height:70px}
+.store-nav{gap:26px}
+.store-nav a{font-size:13px}
+.store-account{gap:38px}
+.store-user b{color:#9758a6;font-weight:700}
+.store-orders{font-size:12px!important}
+.store-count{background:#ff8c05}
+.store-hero{width:100%;max-width:1440px;margin:auto;height:auto;aspect-ratio:2880/914;background-size:cover;background-position:center}
+.store-hero-shade{background:rgba(0,0,0,.12)}
+.store-hero-content{max-width:none;padding:4.4% 9.5%;justify-content:flex-end}
+.store-hero h1{font-family:Georgia,serif;font-weight:700;font-size:clamp(32px,4.4vw,65px);letter-spacing:-.06em;transform:scaleX(.72);transform-origin:right center;white-space:nowrap}
+.store-content{max-width:1440px;margin:auto;min-height:940px;padding:23px 0 95px;background:#f4f4f4}
+.store-content::before{background-position:left top;background-size:100% auto}
+.store-section{max-width:none;padding:0}
+.store-title{font-family:Poppins,Arial,sans-serif;font-size:clamp(23px,2.35vw,34px);line-height:1.45;font-weight:800;margin:0 0 33px}
+.store-title::after{width:58px;height:4px;margin:8px auto 0}
+.store-carousel-wrap{padding:0 9.65%}
+.store-category-rail{gap:20px}
+.store-category{height:auto;aspect-ratio:319/232;flex:0 0 calc((100% - 40px)/3);min-width:0;border-radius:9px}
+.store-category img{object-fit:contain}
+.store-category::after{background:linear-gradient(transparent,rgba(0,0,0,.3))}
+.store-category span{left:18px;bottom:27px;font-size:clamp(14px,1.55vw,23px);font-weight:700;padding:2px 14px}
+.store-arrow{font-size:65px!important;text-shadow:none}
+.store-arrow-left{left:4.6%}
+.store-arrow-right{right:4.6%}
+.store-categories{margin-bottom:55px}
+.store-offers .store-title{margin-bottom:80px}
+.store-offer-rail{overflow-x:auto;gap:3%;padding:0 1px 24px;scroll-padding-top:30px}
+.store-product{flex:0 0 22.75%;min-height:0;aspect-ratio:1.46;border-radius:26px;padding:73px 16px 52px;box-shadow:0 8px 20px #00000018}
+.store-product-photo{top:-30px;left:3%;width:94%;height:105px}
+.store-product-photo img{max-height:100%}
+.store-product-info h3{color:#ff8c05;font-weight:700;font-size:clamp(11px,1.2vw,18px);white-space:normal}
+.store-product-info p{font-size:clamp(11px,1.2vw,18px);font-weight:700}
+.store-add{position:absolute;left:8%;right:8%;bottom:12%;width:84%;height:34px;border-radius:7px;margin:0}
+.store-favorite{top:11px;right:10px;font-size:23px!important}
+.store-footer{background:#713678}
+@media(max-width:900px){
+ .store-header-inner{padding:0 22px;gap:22px}
+ .store-carousel-wrap{padding:0 8%}
+ .store-category{flex-basis:45%;min-width:0}
+ .store-product{flex-basis:46%;aspect-ratio:1.1}
+ .store-product-photo{height:100px}
+ .store-arrow-left{left:1%}.store-arrow-right{right:1%}
+}
+@media(max-width:600px){
+ .store-header{height:auto;min-height:70px}
+ .store-header-inner{padding:8px 12px;gap:10px}
+ .store-logo{height:46px;width:54px}
+ .store-logo img{max-width:54px;max-height:44px}
+ .store-hero{aspect-ratio:2880/914;min-height:150px}
+ .store-hero-content{padding:20px 10%}
+ .store-hero h1{font-size:clamp(23px,6vw,35px)}
+ .store-content{min-height:740px;padding:22px 0 75px}
+ .store-title{font-size:24px;margin-bottom:24px}
+ .store-title::after{width:40px;height:3px;margin-top:5px}
+ .store-carousel-wrap{padding:0 34px}
+ .store-category-rail{gap:12px}
+ .store-category{min-width:190px;flex-basis:78%;height:140px;aspect-ratio:auto}
+ .store-category span{bottom:17px;font-size:15px}
+ .store-arrow{font-size:44px!important}
+ .store-arrow-left{left:2px}.store-arrow-right{right:2px}
+ .store-categories{margin-bottom:65px}
+ .store-offers .store-title{margin-bottom:65px}
+ .store-offer-rail{gap:18px;padding-top:0}
+ .store-product{flex-basis:calc((100% - 18px)/2);min-height:165px;aspect-ratio:auto;padding:58px 9px 49px;border-radius:16px}
+ .store-product-photo{height:80px;top:-24px}
+ .store-product-info h3,.store-product-info p{font-size:11px}
+ .store-add{height:28px;bottom:10px}
+ .store-favorite{top:2px;right:4px;font-size:18px!important}
+}
