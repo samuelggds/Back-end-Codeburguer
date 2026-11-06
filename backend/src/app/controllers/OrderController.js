@@ -13,6 +13,15 @@ const orderSchema = Yup.object().shape({
   ),
 });
 
+function serializeOrder(order) {
+  const data = order.toJSON();
+  return {
+    ...data,
+    _id: data.id,
+    user: { id: data.user_id, name: data.user_name },
+  };
+}
+
 class OrderController {
   async store(request, response) {
     let payload;
@@ -52,20 +61,11 @@ class OrderController {
         products,
         status: "Pedido realizado",
       });
-      return response.status(201).json(this.serialize(order));
+      return response.status(201).json(serializeOrder(order));
     } catch (error) {
       console.error("Erro ao criar pedido", error);
       return response.status(500).json({ error: "Não foi possível criar o pedido" });
     }
-  }
-
-  serialize(order) {
-    const data = order.toJSON();
-    return {
-      ...data,
-      _id: data.id,
-      user: { id: data.user_id, name: data.user_name },
-    };
   }
 
   async index(request, response) {
@@ -74,7 +74,7 @@ class OrderController {
       if (!user) return response.status(401).json({ error: "Sessão inválida" });
       const where = user.admin ? {} : { user_id: request.userId };
       const orders = await Order.findAll({ where, order: [["created_at", "DESC"]] });
-      return response.json(orders.map((order) => this.serialize(order)));
+      return response.json(orders.map((order) => serializeOrder(order)));
     } catch (error) {
       console.error("Erro ao listar pedidos", error);
       return response.status(500).json({ error: "Não foi possível listar os pedidos" });
