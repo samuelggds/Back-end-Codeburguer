@@ -121,7 +121,6 @@ export default function Home() {
           </section>
         </div>
       </main>
-      <footer className="store-footer" id="contato">Desenvolvido por DevClub - 2025 - Todos os direitos reservados</footer>
       {toast && <p className="store-toast" role="status">{toast}</p>}
       {drawer && <div className="store-modal-backdrop" onClick={() => setDrawer(false)}>
         <aside className="store-cart" role="dialog" aria-modal="true" aria-label="Seu pedido" onClick={(event) => event.stopPropagation()}>
