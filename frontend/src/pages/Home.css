@@ -160,3 +160,83 @@
 .store-category-label strong{display:inline-block;padding:2px 13px;background:#0009;border-radius:18px;font-size:inherit;line-height:1.3}
 .store-category-label small{display:block;margin-left:13px;font-size:clamp(10px,.92vw,13px);font-weight:400;line-height:1.3;text-shadow:0 1px 3px #222}
 @media(max-width:600px){.store-category .store-category-label{bottom:10px}.store-category-label small{font-size:10px}}
+
+/* Screenshot alignment revision: ZIP uses a 768-unit desktop grid.
+   This layer supersedes the earlier approximate proportions. */
+.storefront{background:#1e1e1e}
+.store-header{height:clamp(58px,5.078vw,73px)}
+.store-header-inner{position:relative;max-width:1440px;padding:0 3.52%;gap:0}
+.store-logo{width:5.6%;height:100%;justify-content:flex-start}
+.store-logo img{width:min(100%,43px);max-width:43px;max-height:none}
+.store-nav{position:absolute;left:16%;height:100%;gap:0;flex:none}
+.store-nav a{font-size:clamp(10px,.911vw,13px);padding:0 clamp(12px,1.82vw,26px)}
+.store-nav span{height:20px}
+.store-account{position:absolute;right:9.77%;gap:clamp(24px,3.8vw,55px)}
+.store-user svg,.store-orders svg{height:22px;width:22px}
+.store-user small,.store-user span a,.store-user span button{font-size:clamp(9px,.78vw,11px)}
+.store-orders{font-size:clamp(10px,.78vw,12px)!important}
+.store-hero{max-width:1440px;aspect-ratio:2880/914;height:auto;min-height:0}
+.store-hero-content{padding:0;display:block}
+.store-hero h1{position:absolute;left:70.1%;top:14.8%;font-size:clamp(31px,4.43vw,64px);line-height:1.2;transform:scaleX(.60);transform-origin:left center;font-family:Georgia,serif;white-space:nowrap}
+.store-content{padding:clamp(20px,1.69vw,25px) 0 95px;min-height:0;aspect-ratio:auto;background:#f4f4f4}
+.store-content::before{background:url('../assets/devburger-pattern.png') left top / 100% auto repeat-y;opacity:.13}
+.store-title{font-size:clamp(23px,2.21vw,32px);line-height:1.46;margin:0 0 clamp(27px,2.6vw,38px);font-weight:800}
+.store-title::after{width:clamp(40px,4vw,58px);height:3px;margin:clamp(4px,.5vw,8px) auto 0}
+.store-carousel-wrap{padding:0 9.64%}
+.store-category-rail{gap:clamp(12px,1.3vw,20px)}
+.store-category{flex:0 0 calc((100% - 3 * clamp(12px,1.3vw,20px))/4);height:auto;aspect-ratio:319/232;min-width:0;border-radius:8px;background:#242021}
+.store-category img{object-fit:cover}
+.store-category .store-category-label{left:5%;right:3%;bottom:10%;gap:0}
+.store-category-label strong{font-size:clamp(13px,1.56vw,23px);padding:0 9px;line-height:1.5}
+.store-category-label small{font-size:clamp(9px,.91vw,13px);margin-left:8px;line-height:1.2}
+.store-categories{margin-bottom:clamp(35px,4vw,58px)}
+.store-offers .store-title{margin-bottom:clamp(70px,6.65vw,96px)}
+.store-arrow{font-size:clamp(44px,5vw,70px)!important}
+.store-arrow-left{left:4%}.store-arrow-right{right:4%}
+.store-offer-rail{gap:2.8%;padding:0 0 22px;overflow-x:auto}
+.store-product{flex:0 0 23%;height:auto;min-height:0;aspect-ratio:1.42;padding:38% 10px 0;border-radius:clamp(15px,2.2vw,32px);box-shadow:0 6px 14px #00000018}
+.store-product-photo{left:0;width:100%;top:-22%;height:49%}
+.store-product-photo img{max-width:86%;max-height:100%}
+.store-product-info{position:absolute;top:36%;left:8%;right:6%;min-height:0}
+.store-product-info h3,.store-product-info p{font-size:clamp(10px,1.25vw,18px);line-height:1.35}
+.store-product-info h3{white-space:nowrap}
+.store-add{bottom:12%;left:8%;right:8%;width:84%;height:18%;border-radius:6px}
+.store-favorite{top:3%;right:3%;font-size:21px!important}
+.store-content{padding-bottom:clamp(95px,12vw,174px)}
+.store-footer{background:#713678;padding:11px 15px}
+@media(max-width:900px) and (min-width:601px){
+ .store-category{flex-basis:calc((100% - 3 * 12px)/4)}
+ .store-category-label small{font-size:9px}
+ .store-product-info h3,.store-product-info p{font-size:10px}
+}
+@media(max-width:600px){
+ .storefront{background:#f4f4f4}
+ .store-header{height:auto;min-height:66px}
+ .store-header-inner{position:static;padding:8px 12px}
+ .store-logo{width:54px;height:40px}
+ .store-logo img{max-width:43px}
+ .store-nav{position:static;order:3;flex-basis:100%;height:auto;justify-content:center}
+ .store-nav a{font-size:10px;padding:0 10px}
+ .store-account{position:static;margin-left:auto;gap:10px}
+ .store-user svg,.store-orders svg{width:19px;height:19px}
+ .store-hero{min-height:0;aspect-ratio:2880/914}
+ .store-hero h1{font-size:clamp(19px,5vw,27px);top:14.8%}
+ .store-content{padding:18px 0 65px}
+ .store-content::before{background-size:768px auto}
+ .store-title{font-size:23px;margin-bottom:20px}
+ .store-carousel-wrap{padding:0 33px}
+ .store-category{flex:0 0 170px;height:124px;aspect-ratio:auto}
+ .store-category .store-category-label{bottom:8px}
+ .store-category-label strong{font-size:12px}
+ .store-category-label small{font-size:8px}
+ .store-categories{margin-bottom:45px}
+ .store-offers .store-title{margin-bottom:70px}
+ .store-offer-rail{gap:15px;padding-bottom:15px}
+ .store-product{flex:0 0 calc((100% - 15px)/2);height:135px;aspect-ratio:auto;padding:0;border-radius:16px}
+ .store-product-photo{top:-24px;height:68px}
+ .store-product-info{top:53px;left:10px}
+ .store-product-info h3,.store-product-info p{font-size:10px;line-height:15px;white-space:normal}
+ .store-add{left:10px;right:10px;bottom:10px;width:calc(100% - 20px);height:27px}
+ .store-arrow{font-size:40px!important}
+ .store-arrow-left{left:0}.store-arrow-right{right:0}
+}
