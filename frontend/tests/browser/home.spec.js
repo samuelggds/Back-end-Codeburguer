@@ -59,7 +59,7 @@ test('category carousel reveals focused cards and dialogs close with Escape', as
   await expect(page.locator('.product').first()).toHaveAttribute('data-id', 'waffles')
 })
 
-for (const width of [1440, 1920, 375, 320]) {
+for (const width of [1440, 1920, 2560, 3840, 375, 320]) {
   test(`layout at ${width}px never enlarges photos or overflows`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 })
     await page.goto('/')
@@ -71,6 +71,20 @@ for (const width of [1440, 1920, 375, 320]) {
       return scale > 1.005 ? [image.alt] : []
     }))
     expect(enlarged).toEqual([])
-    await expect(page.locator('.desktop')).toHaveCSS('max-width', '1440px')
+    const bounds = await page.locator('.desktop').boundingBox()
+    expect(bounds.x).toBe(0)
+    expect(bounds.width).toBe(await page.evaluate(() => document.documentElement.clientWidth))
   })
 }
+
+test('home and catalog fill a tall viewport without a blank bottom strip', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 2200 })
+  await page.goto('/')
+  const bounds = await page.evaluate(() => ({
+    viewport: innerHeight,
+    root: document.querySelector('.dev-burguer-app').getBoundingClientRect().height,
+    catalogBottom: document.querySelector('.catalog').getBoundingClientRect().bottom,
+  }))
+  expect(bounds.root).toBeGreaterThanOrEqual(bounds.viewport)
+  expect(bounds.catalogBottom).toBeGreaterThanOrEqual(bounds.viewport)
+})

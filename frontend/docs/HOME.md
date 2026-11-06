@@ -1,6 +1,6 @@
 # Home do Codeburguer
 
-A rota `/` reproduz a referência fornecida com banner, categorias e quatro ofertas. O texto `HOME_CARROSSEL` e os favoritos não aparecem na referência final e foram removidos. A largura máxima é 1440 px; as fotos mantêm suas proporções e nunca ultrapassam suas dimensões nativas. O CSS é isolado em `.dev-burguer-app` para preservar as telas de autenticação.
+A rota `/` reproduz a referência fornecida com banner, categorias e quatro ofertas. O texto `HOME_CARROSSEL` e os favoritos não aparecem na referência final e foram removidos. A página ocupa 100% da largura e pelo menos 100% da altura da janela, com rolagem natural quando o conteúdo é maior. A escala de textos, controles e miniaturas é limitada ao tamanho do layout de 1440 px; as fotos mantêm suas proporções e nunca ultrapassam suas dimensões nativas. O CSS é isolado em `.dev-burguer-app` para preservar as telas de autenticação.
 
 ## Organização
 
@@ -49,6 +49,6 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Os testes cobrem dados inválidos na cesta, limites, valores, persistência, carrosséis, diálogos, login/cadastro/logout e ausência de ampliação/overflow em 320, 375, 1440 e 1920 px.
+Os testes cobrem dados inválidos na cesta, limites, valores, persistência, carrosséis, diálogos, login/cadastro/logout, largura total e ausência de ampliação/overflow em 320, 375, 1440, 1920, 2560 e 3840 px, além do preenchimento de uma janela alta de 1280 × 2200 px.
 
 ![Home React em desktop](home-desktop.png)
