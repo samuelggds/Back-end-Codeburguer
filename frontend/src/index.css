@@ -98,7 +98,7 @@ button, input { font: inherit; }
 }
 .auth-form input:focus { border-color: #a459b1; }
 .auth-form input[aria-invalid=true] { border-color: #e99a9a; }
-.auth-form button, .home button {
+.auth-form button {
   background: #9950a4;
   color: #fff;
   border: 0;
@@ -116,16 +116,6 @@ button, input { font: inherit; }
 .auth-footer a { color: #fff; text-decoration: underline; }
 .field-error, .api-error { color: #ffc7c7; font-size: 12px; margin: 0; }
 .api-error { padding: 10px; border: 1px solid #bc7777; border-radius: 4px; }
-.home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 24px;
-  text-align: center;
-}
-.home button { margin-top: 20px; }
 
 @media (max-width: 700px) {
   .auth-shell { display: flex; flex-direction: column; }
