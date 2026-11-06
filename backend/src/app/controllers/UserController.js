@@ -2,8 +2,8 @@ import * as Yup from "yup";
 import UserService from "../services/UserService";
 
 const schema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string().email().required(),
+  name: Yup.string().trim().min(2).required(),
+  email: Yup.string().trim().lowercase().email().required(),
   password: Yup.string().required().min(6).max(15),
 });
 
