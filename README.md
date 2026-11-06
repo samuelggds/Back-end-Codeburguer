@@ -1,23 +1,25 @@
-# Projeto Codeburguer
+# Projeto CodeBurguer / DevBurger
 
-Frontend React + JavaScript + Vite e backend Node.js + Express + Sequelize.
+Frontend React + Vite e backend Node.js + Express + Sequelize, com **PostgreSQL como unico banco de dados**.
 
-## Autenticação
-- Cadastro: `POST /users`.
-- Login: `POST /login`, devolve JWT ao confirmar as credenciais.
-- Validação frontend: React Hook Form e Zod.
-- Backend organizado em Routes → Controllers → Services → Repositories → Models.
-- Por segurança, o cadastro público cria apenas usuários comuns.
-- Rotas existentes de produtos, categorias e pedidos seguem protegidas por JWT.
+## Autenticacao
 
-## Execução local
+- Cadastro: `POST /users` (tela `/register`).
+- Login: `POST /login` (tela `/login`) retorna JWT.
+- Frontend: React Hook Form e Zod.
+- Backend: Routes → Controllers → Services → Repositories → Models.
+- Cadastro publico cria somente usuarios comuns; senhas sao protegidas por bcrypt.
+- Pedidos, produtos e categorias persistem no PostgreSQL. Nao e necessario MongoDB.
 
-1. Use Node.js 20.6+; execute `cd backend && npm install`; configure PostgreSQL e MongoDB conforme a configuração existente.
-2. `npm run dev` cria automaticamente `backend/.env` com uma chave `JWT_SECRET` aleatória forte (se necessário) e carrega o arquivo com a opção nativa `--env-file` do Node.js. O `.env` fica fora do Git.
-3. Execute as migrations existentes e `npm run dev` no backend (porta 3001).
-4. `cd frontend && npm install && npm run dev` em outro terminal.
-5. Use /register e /login. O Vite encaminha /api para http://localhost:3001.
+## Rodar localmente
 
-O armazenamento do JWT em sessionStorage é para a etapa didática; produção requer revisão de XSS, política de sessão e autenticação.
+1. Instale Node.js 20.6+ e PostgreSQL. Crie o banco `codeburguer`.
+2. Na pasta `backend`: `npm install` e `npm run setup:env`.
+3. Configure `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD` e `DB_NAME` no arquivo `backend/.env`.
+4. Execute `npx sequelize-cli db:migrate` e `npm run dev`. A API usa a porta 3001.
+5. Em outro terminal, na pasta `frontend`: `npm install` e `npm run dev`.
+6. Acesse `/register` para cadastrar um usuario e `/login` para entrar. O proxy Vite encaminha `/api` ao backend.
 
-O design se inspira nas capturas do Figma; ainda é preciso incorporar os SVGs e fontes originais para reproduzir os detalhes com fidelidade.
+O `backend/.env` nao deve ser enviado ao GitHub. Se uma senha de banco ja foi publicada no codigo, troque-a.
+
+O armazenamento de JWT em `sessionStorage` e temporario para a etapa didatica; antes de producao, reavalie protecao XSS e politica de sessao.

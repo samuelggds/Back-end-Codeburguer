@@ -3,23 +3,34 @@ import UserRepository from "../repositories/UserRepository";
 
 class UserService {
   async register({ name, email, password }) {
-    const existing = await UserRepository.findByEmail(email);
+    const normalizedEmail = email.trim().toLowerCase();
+    const existing = await UserRepository.findByEmail(normalizedEmail);
     if (existing) {
-      const error = new Error("usuário já existe");
-      error.status = 400;
+      const error = new Error("Este e-mail já está cadastrado");
+      error.status = 409;
       throw error;
     }
 
-    // Nunca permita que a requisição pública escolha o perfil de administrador.
-    const user = await UserRepository.create({
-      id: v4(),
-      name,
-      email,
-      password,
-      admin: false,
-    });
+    try {
+      // Cadastro publico nunca pode selecionar o papel de administrador.
+      const user = await UserRepository.create({
+        id: v4(),
+        name: name.trim(),
+        email: normalizedEmail,
+        password,
+        admin: false,
+      });
 
-    return { id: user.id, name: user.name, email: user.email, admin: user.admin };
+      return { id: user.id, name: user.name, email: user.email, admin: user.admin };
+    } catch (error) {
+      // Duas requisicoes simultaneas nao podem criar o mesmo e-mail.
+      if (error.name === "SequelizeUniqueConstraintError") {
+        const conflict = new Error("Este e-mail já está cadastrado");
+        conflict.status = 409;
+        throw conflict;
+      }
+      throw error;
+    }
   }
 }
 

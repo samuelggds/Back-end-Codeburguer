@@ -8,6 +8,10 @@ class UserRepository {
   create(data) {
     return User.create(data);
   }
+
+  findById(id) {
+    return User.findByPk(id);
+  }
 }
 
 export default new UserRepository();

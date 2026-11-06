@@ -4,10 +4,10 @@ import UserRepository from "../repositories/UserRepository";
 
 class LoginService {
   async login({ email, password }) {
-    const user = await UserRepository.findByEmail(email);
+    const user = await UserRepository.findByEmail(email.trim().toLowerCase());
     const valid = user && (await user.checkPassword(password));
     if (!valid) {
-      const error = new Error("Verifique se seus dados estão corretos");
+      const error = new Error("E-mail ou senha incorretos");
       error.status = 401;
       throw error;
     }

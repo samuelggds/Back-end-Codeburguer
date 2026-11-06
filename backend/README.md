@@ -1,35 +1,40 @@
-# Backend - Projeto Codeburguer
+# Backend — CodeBurguer
 
-API Node.js + Express + Sequelize.
+API Node.js + Express + Sequelize, usando **somente PostgreSQL** para usuarios, produtos, categorias e pedidos.
 
-## Iniciar localmente
+## Configuracao local
 
-Na pasta `backend`, com Node.js 20.6+ (recomendado Node 22 ou 24):
+Requisitos: Node.js 20.6+ (recomendado Node 22), PostgreSQL iniciado e um banco chamado `codeburguer`.
+
+1. Entre na pasta `backend` e execute `npm install`.
+2. Execute `npm run setup:env`, que gera `backend/.env` com segredo JWT aleatorio se ainda nao existir.
+3. Edite `backend/.env` para adicionar, conforme sua instalacao:
+   - `DB_HOST=127.0.0.1`
+   - `DB_PORT=5432`
+   - `DB_USER=postgres`
+   - `DB_PASSWORD=<sua senha local>`
+   - `DB_NAME=codeburguer`
+4. Execute `npx sequelize-cli db:migrate` para criar as tabelas.
+5. Execute `npm run dev` (API na porta 3001).
+6. Em outro terminal, na pasta `frontend`, execute `npm install` e `npm run dev`.
+
+O Vite encaminha chamadas `/api` ao backend na porta 3001.
+
+## Autenticacao
+
+- `POST /users` — nome, e-mail e senha; cria usuario comum e retorna ID/nome/e-mail, sem senha.
+- `POST /login` — e-mail e senha; devolve os dados publicos do usuario e JWT.
+- O e-mail e normalizado em minusculas, a senha e guardada como hash bcrypt, e e-mails repetidos retornam HTTP 409.
+- Rotas de produtos, categorias e pedidos exigem JWT.
+- A persistencia de pedidos agora usa a tabela PostgreSQL `orders`, com produtos gravados em JSONB.
+
+**Seguranca:** mantenha `.env` fora do repositorio. O segredo JWT e a senha do banco nao devem ser colocados no codigo. Troque credenciais antigas se estiverem expostas.
+
+## Verificacoes
 
 ```bash
-npm install
-npm run dev
-```
-
-O `npm run dev` executa automaticamente `npm run setup:env`. Na primeira execucao, isso cria `backend/.env` com uma **chave JWT aleatoria forte** e o Nodemon carrega o arquivo via `node --env-file=.env`. Se o arquivo ja existir, a chave e as demais configuracoes sao preservadas.
-
-**Nao envie o .env para o GitHub**. Ele esta incluido no `.gitignore`. Nunca copie o valor de exemplo `SUBSTITUA_POR_UMA_CHAVE_ALEATORIA_FORTE` como segredo real.
-
-Para gerar ou verificar o arquivo manualmente:
-
-```bash
-npm run setup:env
 npm run test:env
+npx sequelize-cli db:migrate:status
 ```
 
-Para implantacao em producao, defina `JWT_SECRET` na configuracao segura do provedor (a chave nao deve ser commitada). O Node mantem a variavel de ambiente existente quando presente.
-
-A API usa a porta **3001**. PostgreSQL e MongoDB ainda precisam estar disponiveis conforme as configuracoes atuais; a chave JWT so resolve o problema de inicializacao da autenticacao.
-
-## Sequelize
-
-A configuracao `.sequelizerc` preserva os caminhos relativos para modelos e migrations. Execute os comandos a partir de `backend`.
-
-## Frontend
-
-A interface React + Vite esta em `../frontend`; usa proxy para a API na porta 3001.
+Teste manualmente cadastro, login com senha correta e incorreta, cadastro duplicado e requisicoes protegidas com e sem token. Os testes de integracao com PostgreSQL e navegador ainda nao foram executados neste PR.
